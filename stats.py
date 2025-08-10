@@ -19,3 +19,18 @@ def count_characters(book):
         else:
             characters.update({char: 1})
     return characters
+
+def create_list(characters):
+    list_of_dict = list()
+    for char in characters:
+        list_of_dict.append({"char": char, "num": characters[char]})
+    return list_of_dict
+
+def sort_on(items):
+    return items["num"]
+
+def create_final_count(book):
+    characters = count_characters(book)
+    list = create_list(characters)
+    list.sort(reverse=True, key=sort_on)
+    return list

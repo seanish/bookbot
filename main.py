@@ -1,9 +1,21 @@
-from stats import count_characters, count_words
+from stats import count_words, create_final_count
 
 def main():
     word_count = count_words("books/frankenstein.txt")
-    character_count = count_characters("books/frankenstein.txt")
-    print(f"{word_count} words found in the document")
-    print(character_count)
+    character_count = create_final_count("books/frankenstein.txt")
+    print("============ BOOKBOT ============")
+    print("Analyzing book found at books/frankenstein.txt")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    i = 0
+    while i < len(character_count) - 1:
+        i += 1
+        if character_count[i]["char"].isalpha() != True:
+            continue
+        else:
+            print(f"{character_count[i]['char']}" ": " f"{character_count[i]['num']}")
+
+    print("============= END ===============")
 
 main()
